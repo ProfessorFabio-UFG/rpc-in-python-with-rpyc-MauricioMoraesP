@@ -1,34 +1,32 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/i7KUR3a2)
-### Overview
+# 🧠 Sistema de Lista Compartilhada com RPyC
 
-This example illustrates RPC in Python using the RPyC library (https://rpyc.readthedocs.io/).
+Este projeto implementa um sistema cliente-servidor usando **RPC com a biblioteca RPyC (Remote Python Call)**. O servidor mantém uma **lista compartilhada** que pode ser manipulada por múltiplos clientes de forma interativa via prompt.
 
-It consists of a server that exposes two remotely accessible procedures used to manipulate a list:
+---
 
-- value(): returns the current value of the list (its elements)
-- append(): adds a new element to the end of the list
+## ⚙️ Funcionalidades
 
-### Before running the example, you need to install the RPyC library:
+O cliente interage com o sistema por meio de um menu interativo. As operações disponíveis são:
 
-Do the following on the two machines (AWS EC2 instances) that you will use for this activity:
+1. Ver a lista atual
+2. Adicionar item à lista
+3. Remover item da lista
+4. Limpar toda a lista
+5. Ver o tamanho da lista
+6. Buscar item por índice
+7. Verificar se um valor está na lista
+8. Ver histórico de operações
+9. Salvar a lista em arquivo (`data.json`)
+10. Carregar lista salva de arquivo
+0. Sair do programa
 
-    sudo apt update
-    sudo apt install python3-rpyc
+---
 
-### Then edit the constRPYC.py file to use the IP address of the machine where you will run the server:
+## 📁 Estrutura de Arquivos
 
-Also make sure it is using one of the ports left open for incoming TCP connections on the firewall (security group), such as 5678
-
-### Then run the server on one machine
-
-    python3 server.py
-
-(and leave it running)
-
-### Then run the client on the other machine
-
-    python3 client.py
-
-### Now add other remote procedures to the server and change the client to test them
-
-You may add the same remote procedures that you added in the sockets activity.
+```bash
+rpc-in-python/
+├── client.py           # Cliente com menu interativo
+├── server.py           # Servidor RPyC com lógica da lista
+├── constRPYC.py        # Constantes de IP e porta
+└── data.json           # (gerado automaticamente ao salvar a lista)
